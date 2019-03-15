@@ -1,0 +1,27 @@
+{
+  "name": "webapp-go",
+  "version": "1.0.0",
+  "main": "index.js",
+  "port": "80",
+  "scripts": {
+    "start": "go run server/main.go",
+    "dev": "parcel watch ./client/public/index.html",
+    "rawbuild": "parcel build ./client/public/index.html",
+    "build": "npm run clear && npm run rawbuild && npm run res",
+    "clear": "rm -rf .cache dist",
+    "res": "cp -r ./client/public/images ./dist/",
+    "docker-build": "docker build -t stephenwu2019/test:latest .",
+    "docker-run": "docker run -p 3008:80 -d stephenwu2019/test:latest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0"
+  }
+}
