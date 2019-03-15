@@ -5,8 +5,8 @@
   "port": "80",
   "scripts": {
     "start": "go run server/main.go",
-    "dev": "parcel watch ./client/public/index.html",
-    "rawbuild": "parcel build ./client/public/index.html",
+    "dev": "parcel watch ./client/public/index.html --public-url /static/",
+    "rawbuild": "parcel build ./client/public/index.html --public-url /static/",
     "build": "npm run clear && npm run rawbuild && npm run res",
     "clear": "rm -rf .cache dist",
     "res": "cp -r ./client/public/images ./dist/",

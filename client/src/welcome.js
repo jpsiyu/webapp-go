@@ -8,7 +8,7 @@ class Welcome extends React.Component{
     render(){
         return <div className='welcome'>
             <h1>Welcome to use this framework!</h1>
-            <img src="/images/go.png" />
+            <img src="/static/images/go.png" />
         </div>
     }
 }
