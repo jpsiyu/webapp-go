@@ -10,8 +10,8 @@
     "build": "npm run clear && npm run rawbuild && npm run res",
     "clear": "rm -rf .cache dist",
     "res": "cp -r ./client/public/images ./dist/",
-    "docker-build": "docker build -t stephenwu2019/test:latest .",
-    "docker-run": "docker run -p 3008:80 -d stephenwu2019/test:latest"
+    "docker-build": "docker build -t stephenwu2019/webapp-go:latest .",
+    "docker-run": "docker run -p 3008:80 -d stephenwu2019/webapp-go:latest"
   },
   "keywords": [],
   "author": "",
