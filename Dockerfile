@@ -25,5 +25,7 @@ RUN go mod download
 RUN go build server/main.go 
 RUN pwd && ls -l
 
+EXPOSE 80
+
 ENTRYPOINT ["/go/src/app/main"]
 CMD ["go", "run", "./server/main.go"]
