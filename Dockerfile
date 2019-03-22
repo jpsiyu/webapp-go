@@ -17,7 +17,7 @@ RUN go build -o appstart ./server
 RUN pwd && ls -l
 
 # Copy to rease
-FROM builder AS release
+FROM golang:alpine AS release
 WORKDIR /go/src/app
 COPY --from=builder /go/src/app/appstart .
 COPY --from=builder /go/src/app/dist ./dist
