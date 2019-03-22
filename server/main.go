@@ -7,7 +7,6 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/jpsiyu/webapp-go/server/conf"
 )
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
@@ -36,6 +35,6 @@ func main() {
 	r.HandleFunc("/", homeHandler)
 	r.NotFoundHandler = http.HandlerFunc(homeHandler)
 
-	log.Println(fmt.Sprintf("Server listening on port %d", conf.Port))
-	http.ListenAndServe(fmt.Sprintf(":%d", conf.Port), r)
+	log.Println(fmt.Sprintf("Server listening on port %d", Port))
+	http.ListenAndServe(fmt.Sprintf(":%d", Port), r)
 }
