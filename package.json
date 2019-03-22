@@ -1,27 +1,26 @@
 {
   "name": "webapp-go",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
-  "port": "80",
   "scripts": {
-    "start": "go run server/main.go",
-    "dev": "parcel watch ./client/public/index.html --public-url /static/",
-    "rawbuild": "parcel build ./client/public/index.html --public-url /static/",
-    "build": "npm run clear && npm run rawbuild && npm run res",
+    "serve": "go run ./server",
+    "p-watch": "parcel watch ./client/public/index.html --public-url /static/",
+    "p-build": "parcel build ./client/public/index.html --public-url /static/",
     "clear": "rm -rf .cache dist",
-    "res": "cp -r ./client/public/images ./dist/",
-    "docker-build": "docker build -t stephenwu2019/webapp-go:latest .",
-    "docker-run": "docker run -p 3008:80 -d stephenwu2019/webapp-go:latest"
+    "asset": "cp -r ./client/src/asset/* ./dist/",
+    "build": "npm run clear && npm run p-build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3"
+    "vue": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.3"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.11.0"
+    "@vue/component-compiler-utils": "^2.6.0",
+    "parcel-bundler": "^1.11.0",
+    "vue-template-compiler": "^2.6.10"
   }
 }

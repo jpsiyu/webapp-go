@@ -1,8 +1,8 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Welcome from './welcome'
+import Vue from "vue/dist/vue.esm.js"
+import App from "./App"
 
-ReactDOM.render(
-    <Welcome />,
-    document.getElementById('root')
-)
+new Vue({
+    el: "#root",
+    components: { App },
+    template: "<App />",
+})

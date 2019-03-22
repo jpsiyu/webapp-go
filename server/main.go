@@ -1,28 +1,14 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
-	"os"
 
 	"github.com/gorilla/mux"
+	"github.com/jpsiyu/webapp-go/server/conf"
 )
-
-// parse package.json, read the application port
-func parsePackageJson(result *map[string]interface{}) {
-	pJson, err := os.Open("package.json")
-	if err != nil {
-		log.Println("Read package json error:", err)
-		return
-	}
-
-	defer pJson.Close()
-	byteValue, _ := ioutil.ReadAll(pJson)
-	json.Unmarshal([]byte(byteValue), &result)
-}
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	log.Println(r.URL.Path)
@@ -50,11 +36,6 @@ func main() {
 	r.HandleFunc("/", homeHandler)
 	r.NotFoundHandler = http.HandlerFunc(homeHandler)
 
-	// parse json file
-	var result map[string]interface{}
-	parsePackageJson(&result)
-	port := result["port"]
-
-	log.Println(fmt.Sprintf("Server listening on port %s", port))
-	http.ListenAndServe(fmt.Sprintf(":%s", port), r)
+	log.Println(fmt.Sprintf("Server listening on port %d", conf.Port))
+	http.ListenAndServe(fmt.Sprintf(":%d", conf.Port), r)
 }
