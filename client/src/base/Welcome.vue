@@ -1,7 +1,7 @@
 <template>
     <div class="welcome">
         <h2>Welcome using this framework!</h2>
-        <img src="./asset/images/go.png" alt="welcome">
+        <img src="../asset/images/go.png" alt="welcome">
     </div>
 </template>
 

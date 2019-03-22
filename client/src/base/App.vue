@@ -8,7 +8,9 @@
 import Welcome from "./Welcome";
 export default {
     name: "App",
-    components: { Welcome }
+    components: { Welcome },
+    created: function(){
+    }
 };
 </script>
 
